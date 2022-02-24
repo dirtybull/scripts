@@ -22,7 +22,7 @@ fetch(){
   
   echo -e "\nFetching ${CYAN}$url${NC} with flags: ${CYAN}$flags${NC}"
   
-  curl_cmd="curl --connect-timeout 10 -k -s -o /dev/null -H \"User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0\" $HEADERs $flags -w \"%{http_code}\",\"%{size_download}\" $url"
+  curl_cmd="curl --connect-timeout 10 -k -s -o /dev/null -L -H \"User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0\" $HEADERs $flags -w \"%{http_code}\",\"%{size_download}\" $url"
   echo "$curl_cmd"
   
   res_str=$(eval $curl_cmd) || true
